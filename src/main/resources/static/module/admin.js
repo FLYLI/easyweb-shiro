@@ -115,7 +115,7 @@ layui.define(['layer'], function (exports) {
                             location.replace('/login');
                         }, 1000);
                         return;
-                    } else if ('html' == paramdataType.toLowerCase() && jsonRs.code == 403) {
+                    } else if ('html' == param.dataType.toLowerCase() && jsonRs.code == 403) {
                         layer.msg(jsonRs.msg, {icon: 2});
                     }
                 }
