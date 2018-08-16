@@ -93,7 +93,7 @@ public class MainController extends BaseController implements ErrorController {
     @RequestMapping("/assets/captcha")
     public void captcha(HttpServletRequest request, HttpServletResponse response) {
         try {
-            CaptchaUtil.out(request, response);
+            CaptchaUtil.out(4, request, response);
         } catch (IOException e) {
             e.printStackTrace();
         }
