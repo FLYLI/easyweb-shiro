@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService {
         user.setUsername(null);
         boolean rs = userMapper.updateById(user) > 0;
         if (rs) {
-            userRoleMapper.delete(new EntityWrapper().eq("user_id", user.getUserId()));
+            userRoleMapper.delete(new EntityWrapper<UserRole>().eq("user_id", user.getUserId()));
             List<Integer> roleIds = getRoleIds(user.getRoles());
             if (userRoleMapper.insertBatch(user.getUserId(), roleIds) < roleIds.size()) {
                 throw new BusinessException("修改失败，请重试");
