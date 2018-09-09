@@ -1,12 +1,12 @@
 package com.faptech.easyweb.common.shiro;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
-
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.util.Map;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 
 /**
  * beetl实现shiro标签
@@ -51,7 +51,7 @@ public class ShiroExt {
      * @param map
      * @return
      */
-    public static String principal(Map map) {
+    public static String principal(Map<?, ?> map) {
         String strValue = null;
         if (getSubject() != null) {
 
@@ -153,12 +153,11 @@ public class ShiroExt {
         return !hasPermission(p);
     }
 
-    @SuppressWarnings({"unchecked"})
     private static Object getPrincipalFromClassName(String type) {
         Object principal = null;
 
         try {
-            Class cls = Class.forName(type);
+            Class<?> cls = Class.forName(type);
             principal = getSubject().getPrincipals().oneByType(cls);
         } catch (ClassNotFoundException e) {
 
