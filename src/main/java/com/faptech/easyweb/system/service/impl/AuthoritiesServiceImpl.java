@@ -18,8 +18,10 @@ import com.faptech.easyweb.system.service.AuthoritiesService;
 
 @Service
 public class AuthoritiesServiceImpl implements AuthoritiesService {
-    @Autowired
+
+	@Autowired
     private AuthoritiesMapper authoritiesMapper;
+    
     @Autowired
     private RoleAuthoritiesMapper roleAuthoritiesMapper;
 
